@@ -5,10 +5,10 @@ const StyledItem = styled.div`
     margin-left: 20px;
     margin-right: 20px;
     text-align: center;
-    background-color: red;
-    border: 1px solid black;
+    background-color: #ffffff;
+    border: 3px solid #7d3cff;
     width: 200px;
-    height: 200px;
+    height: 150px;
 `
 
 export const WhatItem = props => (

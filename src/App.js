@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
-import {WhatList} from './Components/WhatList/WhatList.js';
+import { WhatList } from './Components/WhatList/WhatList.js';
 import { Navbar } from './Components/Navbar/Navbar';
+import { SubmitForm } from './Components/SubmitForm/SubmitForm';
 
 const StyledHeader = styled.h1`
   text-align: center;
@@ -40,6 +41,7 @@ class App extends Component {
       <div className="App">
         <StyledHeader>What'n'When</StyledHeader>
         <Navbar />
+        <SubmitForm />
         <WhatList items={this.state.whats} />
       </div>
     );

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledList = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
 `
 
 export const WhatList = props => {
