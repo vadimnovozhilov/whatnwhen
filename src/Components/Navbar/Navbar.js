@@ -1,27 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledNav = styled.nav`
-    
-`
-
 const StyledUl = styled.ul`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-left: 40px;
-    margin-right: 40px;
+    justify-content: center;
     list-style: none;
     text-align: center;
 `
 
+const StyledLi = styled.li`
+    cursor: pointer;
+    margin-right: 20px;
+
+    &:hover {
+        border-bottom: 5px solid #7d3cff;
+    }
+`
+
 export const Navbar = () => (
-    <StyledNav>
+    <nav>
         <StyledUl>
-            <li>Today</li>
-            <li>Everything</li>
-            <li>Archived</li>
+            <StyledLi>Today</StyledLi>
+            <StyledLi>Everything</StyledLi>
+            <StyledLi>Archived</StyledLi>
         </StyledUl>
-    </StyledNav>
+    </nav>
 )
