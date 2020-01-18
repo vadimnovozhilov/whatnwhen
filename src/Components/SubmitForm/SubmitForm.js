@@ -1,10 +1,31 @@
 import React from 'react';
-import DateTimePicker from 'react-datetime-picker/dist/entry.nostyle';
+import styled from 'styled-components';
+
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 30px;
+`
+
+const StyledInput = styled.input`
+    width: 150px;
+    margin-right: 7px;
+`
+
+const StyledButton = styled.button`
+    background-color: #d2e59e;
+
+    &:hover {
+        background-color: #dcedb9;
+        cursor: pointer;
+    }
+`
 
 export const SubmitForm = () => (
-    <div>
-        <input type="text" placeholder="what?" />
-        <DateTimePicker />
-        <button>Submit</button>
-    </div>
+    <StyledForm>
+        <StyledInput type="text" placeholder="what?" />
+        <StyledInput type="date" />
+        <StyledButton>Submit</StyledButton>
+    </StyledForm>
 )
