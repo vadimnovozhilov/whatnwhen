@@ -27,10 +27,10 @@ const StyledButton = styled.button`
     }
 `
 
-export const SubmitForm = () => (
-    <StyledForm>
-        <StyledInput type="text" placeholder="what?" />
-        <StyledInput type="date" />
-        <StyledButton>Submit</StyledButton>
+export const SubmitForm = (props) => (
+    <StyledForm onSubmit={props.handleSubmit}>
+        <StyledInput type="text" name="title" placeholder="what?" />
+        <StyledInput type="date" name="date" />
+        <StyledButton type="submit">Submit</StyledButton>
     </StyledForm>
 )

@@ -44,24 +44,19 @@ class App extends Component {
     super();
 
     this.state = {
-      whats: [
-        {
-          id: 1,
-          title: 'First',
-          date: 'Now'
-        },
-        {
-          id: 2,
-          title: 'Second',
-          date: 'Today'
-        },
-        {
-          id: 3,
-          title: 'Third',
-          date: 'Yesterday'
-        },
-      ]
+      whats: []
     }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const title = e.target.title.value;
+    const date = e.target.date.value;
+    const item = { title, date };
+    const items = [...this.state.whats, item];
+    this.setState({ 
+      whats: items,
+    });
   }
 
   render() {
@@ -82,7 +77,7 @@ class App extends Component {
                 </StyledLi>
             </StyledUl>
         </nav>
-        <SubmitForm />
+        <SubmitForm handleSubmit={this.handleSubmit} />
         <Switch>
           <Route exact path='/' component={() => <AllItems items={this.state.whats} />} />
           <Route path='/today' component={TodayItems} />
