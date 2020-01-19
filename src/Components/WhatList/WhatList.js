@@ -6,6 +6,7 @@ const StyledList = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 `
 
 export const WhatList = props => {

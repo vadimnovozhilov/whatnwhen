@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const StyledItem = styled.div`
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 20px;
     text-align: center;
     background-color: #ffffff;
     border: 3px solid #7d3cff;
