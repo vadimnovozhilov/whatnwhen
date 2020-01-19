@@ -11,9 +11,23 @@ const StyledItem = styled.div`
     height: 150px;
 `
 
+const StyledArchiveButton = styled.button`
+    background-color: #ef2917;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    cursor: pointer;
+`
+
 export const WhatItem = props => (
     <StyledItem>
-        <p>{props.item.title}</p>
-        <p>{props.item.date}</p>
+        <p>What: {props.item.title}</p>
+        <p>When: {props.item.date}</p>
+        <p>{props.item.isActive 
+            ? <StyledArchiveButton>Archive</StyledArchiveButton> 
+            : 
+            ''}</p>
     </StyledItem>
 )

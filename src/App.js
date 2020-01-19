@@ -52,12 +52,19 @@ class App extends Component {
     e.preventDefault();
     const title = e.target.title.value;
     const date = e.target.date.value;
-    const item = { title, date };
+    const isActive = true;
+    const item = { title, date, isActive };
     const items = [...this.state.whats, item];
-    this.setState({ 
-      whats: items,
-    });
+    this.setState({whats: items});
+    localStorage.setItem('whats', JSON.stringify(this.state.whats));
   }
+
+  componentDidMount() {
+    const dataFromStorage = JSON.parse(localStorage.getItem("whats"));
+    this.setState({whats: dataFromStorage});
+  }
+  
+  
 
   render() {
     return (
