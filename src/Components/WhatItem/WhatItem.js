@@ -25,7 +25,7 @@ const StyledArchiveButton = styled.button`
 export const WhatItem = props => (
     <StyledItem>
         <p>What: {props.item.title}</p>
-        <p>When: {props.item.date}</p>
+        <p>When: {props.item.formattedDate}</p>
         <p>{props.item.isActive 
             ? <StyledArchiveButton>Archive</StyledArchiveButton> 
             : 

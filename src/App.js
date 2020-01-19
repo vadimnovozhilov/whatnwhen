@@ -6,6 +6,7 @@ import { AllItems } from './Pages/AllItems/AllItems.js';
 import { ArchivedItems } from './Pages/ArchivedItems/ArchivedItems.js';
 import { TodayItems } from './Pages/TodayItems/TodayItems.js';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import moment from 'moment';
 
 const StyledHeader = styled.h1`
   text-align: center;
@@ -52,8 +53,9 @@ class App extends Component {
     e.preventDefault();
     const title = e.target.title.value;
     const date = e.target.date.value;
+    const formattedDate = moment(date).format('MMMM Do YYYY');
     const isActive = true;
-    const item = { title, date, isActive };
+    const item = { title, formattedDate, isActive };
     const items = [...this.state.whats, item];
     this.setState({whats: items});
     localStorage.setItem('whats', JSON.stringify(this.state.whats));
