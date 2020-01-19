@@ -15,6 +15,11 @@ const StyledInput = styled.input`
 
 const StyledButton = styled.button`
     background-color: #d2e59e;
+    border: none;
+    color: #7d3cff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
 
     &:hover {
         background-color: #dcedb9;

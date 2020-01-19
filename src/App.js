@@ -5,7 +5,7 @@ import { SubmitForm } from './Components/SubmitForm/SubmitForm';
 import { AllItems } from './Pages/AllItems/AllItems.js';
 import { ArchivedItems } from './Pages/ArchivedItems/ArchivedItems.js';
 import { TodayItems } from './Pages/TodayItems/TodayItems.js';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
 const StyledHeader = styled.h1`
   text-align: center;
@@ -27,8 +27,16 @@ const StyledLi = styled.li`
     margin-right: 20px;
 
     &:hover {
-        border-bottom: 5px solid #7d3cff;
+        
     }
+`
+
+const StyledLink = styled(NavLink)`
+  text-decoration: none;
+
+  &.active {
+    border-bottom: 5px solid #7d3cff;
+  }
 `
 
 class App extends Component {
@@ -64,13 +72,13 @@ class App extends Component {
         <nav>
             <StyledUl>
                 <StyledLi>
-                  <Link to={'/'}>Everything</Link>
+                  <StyledLink exact to={'/'} activeClassName="active">Everything</StyledLink>
                 </StyledLi>
                 <StyledLi>
-                  <Link to={'/today'}>Today</Link>
+                  <StyledLink to={'/today'} activeClassName="active">Today</StyledLink>
                 </StyledLi>
                 <StyledLi>
-                  <Link to={'/archived'}>Archived</Link>
+                  <StyledLink to={'/archived'} activeClassName="active">Archived</StyledLink>
                 </StyledLi>
             </StyledUl>
         </nav>
