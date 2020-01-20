@@ -82,6 +82,8 @@ class App extends Component {
   
 
   render() {
+    const archivedWhats = this.state.whats.filter(item => item.isActive === false);
+    const activeItems = this.state.whats.filter(item => item.isActive === true);
     return (
       <Router>
         <div className="App">
@@ -101,9 +103,9 @@ class App extends Component {
         </nav>
         <SubmitForm handleSubmit={this.handleSubmit} />
         <Switch>
-          <Route exact path='/' component={() => <AllItems items={this.state.whats} handleArchive={this.handleArchive} />} />
+          <Route exact path='/' component={() => <AllItems items={activeItems} handleArchive={this.handleArchive} />} />
           <Route path='/today' component={TodayItems} />
-          <Route path='/archived' component={ArchivedItems} />
+          <Route path='/archived' component={() => <AllItems items={archivedWhats} />} />
         </Switch>
       </div>
       </Router>
