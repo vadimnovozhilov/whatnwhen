@@ -63,7 +63,11 @@ class App extends Component {
 
   componentDidMount() {
     const dataFromStorage = JSON.parse(localStorage.getItem("whats"));
-    this.setState({whats: dataFromStorage});
+    if(!dataFromStorage) {
+      this.setState({ whats: []});
+    } else {
+      this.setState({whats: dataFromStorage});
+    }
   }
   
   
