@@ -51,22 +51,27 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const id = Math.floor((Math.random() * 100) + 1);
     const title = e.target.title.value;
     const date = e.target.date.value;
     const formattedDate = moment(date).format('MMMM Do YYYY');
     const isActive = true;
-    const item = { title, formattedDate, isActive };
+    const item = { id, title, formattedDate, isActive };
     const items = [...this.state.whats, item];
     this.setState({whats: items});
     localStorage.setItem('whats', JSON.stringify(this.state.whats));
   }
 
+  handleArchive = id => {
+    console.log(id);
+  }
+
   componentDidMount() {
     const dataFromStorage = JSON.parse(localStorage.getItem("whats"));
     if(!dataFromStorage) {
-      this.setState({ whats: []});
+      this.setState({ whats: [] });
     } else {
-      this.setState({whats: dataFromStorage});
+      this.setState({ whats: dataFromStorage });
     }
   }
   
@@ -92,7 +97,7 @@ class App extends Component {
         </nav>
         <SubmitForm handleSubmit={this.handleSubmit} />
         <Switch>
-          <Route exact path='/' component={() => <AllItems items={this.state.whats} />} />
+          <Route exact path='/' component={() => <AllItems items={this.state.whats} handleArchive={this.handleArchive} />} />
           <Route path='/today' component={TodayItems} />
           <Route path='/archived' component={ArchivedItems} />
         </Switch>

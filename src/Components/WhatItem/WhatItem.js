@@ -27,7 +27,7 @@ export const WhatItem = props => (
         <p>What: {props.item.title}</p>
         <p>When: {props.item.formattedDate}</p>
         <p>{props.item.isActive 
-            ? <StyledArchiveButton>Archive</StyledArchiveButton> 
+            ? <StyledArchiveButton onClick={() => props.handleArchive(props.item.id)}>Archive</StyledArchiveButton> 
             : 
             ''}</p>
     </StyledItem>

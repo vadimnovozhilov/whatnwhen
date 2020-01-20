@@ -12,8 +12,8 @@ const StyledList = styled.div`
 export const WhatList = props => {
     return (
         <StyledList>
-            {props.items.map((item, index) => (
-                <WhatItem key={index} item={item} />
+            {props.items.map(item => (
+                <WhatItem key={item.id} item={item} handleArchive={props.handleArchive} />
             ))}
         </StyledList>
     )

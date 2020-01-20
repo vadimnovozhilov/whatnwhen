@@ -3,6 +3,6 @@ import { WhatList } from '../../Components/WhatList/WhatList';
 
 export const AllItems = (props) => (
     <div>
-        <WhatList items={props.items} />
+        <WhatList items={props.items} handleArchive={props.handleArchive} />
     </div>
 )
