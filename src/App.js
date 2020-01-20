@@ -63,7 +63,11 @@ class App extends Component {
   }
 
   handleArchive = id => {
-    console.log(id);
+    this.setState(prevState => ({
+      whats: prevState.whats.map(
+        el => el.id === id? { ...el, isActive: false }: el
+      )
+    }))
   }
 
   componentDidMount() {
