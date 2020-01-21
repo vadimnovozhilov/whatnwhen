@@ -9,7 +9,7 @@ const StyledItem = styled.div`
     background-color: #ffffff;
     border: 3px solid #7d3cff;
     width: 200px;
-    height: 150px;
+    min-height: 150px;
 `
 
 const StyledArchiveButton = styled.button`
@@ -22,10 +22,14 @@ const StyledArchiveButton = styled.button`
     cursor: pointer;
 `
 
+const StyledTitle = styled.p`
+    word-break: break-all;
+`
+
 export const WhatItem = props => (
     <StyledItem>
-        <p>What: {props.item.title}</p>
-        <p>When: {props.item.formattedDate}</p>
+        <StyledTitle><strong>What:</strong> {props.item.title}</StyledTitle>
+        <p><strong>When:</strong> {props.item.formattedDate}</p>
         <p>{props.item.isActive 
             ? <StyledArchiveButton onClick={() => props.handleArchive(props.item.id)}>Archive</StyledArchiveButton> 
             : 
