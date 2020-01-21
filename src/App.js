@@ -61,8 +61,8 @@ class App extends Component {
     } else {
       const item = { id, title, formattedDate, isActive };
       const items = [...this.state.whats, item];
+      localStorage.setItem('whats', JSON.stringify(items));
       this.setState({whats: items});
-      localStorage.setItem('whats', JSON.stringify(this.state.whats));
     }
   }
 
