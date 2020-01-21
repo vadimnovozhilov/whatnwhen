@@ -3,8 +3,6 @@ import './App.css';
 import styled from 'styled-components';
 import { SubmitForm } from './Components/SubmitForm/SubmitForm';
 import { AllItems } from './Pages/AllItems/AllItems.js';
-import { ArchivedItems } from './Pages/ArchivedItems/ArchivedItems.js';
-import { TodayItems } from './Pages/TodayItems/TodayItems.js';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
