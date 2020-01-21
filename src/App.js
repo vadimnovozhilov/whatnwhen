@@ -7,6 +7,8 @@ import { ArchivedItems } from './Pages/ArchivedItems/ArchivedItems.js';
 import { TodayItems } from './Pages/TodayItems/TodayItems.js';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const StyledHeader = styled.h1`
   text-align: center;
@@ -56,10 +58,14 @@ class App extends Component {
     const date = e.target.date.value;
     const formattedDate = moment(date).format('MMMM Do YYYY');
     const isActive = true;
-    const item = { id, title, formattedDate, isActive };
-    const items = [...this.state.whats, item];
-    this.setState({whats: items});
-    localStorage.setItem('whats', JSON.stringify(this.state.whats));
+    if (title === '' || date === '') {
+      toast.error("You should fill both title and date fields");
+    } else {
+      const item = { id, title, formattedDate, isActive };
+      const items = [...this.state.whats, item];
+      this.setState({whats: items});
+      localStorage.setItem('whats', JSON.stringify(this.state.whats));
+    }
   }
 
   handleArchive = id => {
@@ -87,6 +93,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+        <ToastContainer />
         <StyledHeader>What'n'When</StyledHeader>
         <nav>
             <StyledUl>
