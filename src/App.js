@@ -90,6 +90,8 @@ class App extends Component {
   render() {
     const archivedWhats = this.state.whats.filter(item => item.isActive === false);
     const activeItems = this.state.whats.filter(item => item.isActive === true);
+    const todayIs = new Date();
+    const todaysItems = this.state.whats.filter(item => item.formattedDate === moment(todayIs).format('MMMM Do YYYY'));
     return (
       <Router>
         <div className="App">
@@ -111,7 +113,7 @@ class App extends Component {
         <SubmitForm handleSubmit={this.handleSubmit} />
         <Switch>
           <Route exact path='/' component={() => <AllItems items={activeItems} handleArchive={this.handleArchive} />} />
-          <Route path='/today' component={TodayItems} />
+          <Route path='/today' component={() => <AllItems items={todaysItems} />} />
           <Route path='/archived' component={() => <AllItems items={archivedWhats} />} />
         </Switch>
       </div>
