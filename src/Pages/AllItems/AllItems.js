@@ -3,6 +3,13 @@ import { WhatList } from '../../Components/WhatList/WhatList';
 
 export const AllItems = (props) => (
     <div>
-        <WhatList items={props.items} handleArchive={props.handleArchive} />
+        {
+            !props.items.length === 0 ? (
+                <WhatList items={props.items} handleArchive={props.handleArchive} />
+            )
+            : (
+                <p>Add first whatnwhen</p>
+            )
+        }
     </div>
 )

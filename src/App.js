@@ -71,7 +71,7 @@ class App extends Component {
   handleArchive = id => {
     this.setState(prevState => ({
       whats: prevState.whats.map(
-        el => el.id === id? { ...el, isActive: false }: el
+        el => el.id === id ? { ...el, isActive: false }: el
       )
     }))
   }
