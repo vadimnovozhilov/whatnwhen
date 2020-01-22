@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import uuidv4 from 'uuid/v4';
 
 const StyledHeader = styled.h1`
   text-align: center;
@@ -51,7 +52,7 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const id = Math.floor((Math.random() * 100) + 1);
+    const id = uuidv4();
     const title = e.target.title.value;
     const date = e.target.date.value;
     const formattedDate = moment(date).format('MMMM Do YYYY');
